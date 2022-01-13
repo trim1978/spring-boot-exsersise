@@ -27,22 +27,14 @@ public class StudentRequestServiceByInput implements StudentRequestService{
                 null,
                 locale
         ) + ": ");
-        System.out.print(msg.getMessage(
-                "quiz.enter.firstname",
-                null,
-                locale
-        ) + ": ");
+
         String firstName = scaner.nextLine();
         System.out.print(msg.getMessage(
                 "quiz.enter.lastname",
                 null,
                 locale
         ) + ": ");
-        System.out.print(msg.getMessage(
-                "quiz.enter.firstname",
-                null,
-                locale
-        ) + ": ");
+        
         String lastName = scaner.nextLine();
         System.out.println(msg.getMessage(
                 "quiz.enter.welcome",
