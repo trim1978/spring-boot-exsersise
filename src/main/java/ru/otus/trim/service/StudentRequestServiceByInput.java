@@ -34,7 +34,7 @@ public class StudentRequestServiceByInput implements StudentRequestService{
                 null,
                 locale
         ) + ": ");
-        
+
         String lastName = scaner.nextLine();
         System.out.println(msg.getMessage(
                 "quiz.enter.welcome",
