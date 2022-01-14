@@ -14,6 +14,6 @@ public class QuizOutServiceToConsole implements QuizOutService {
 
     @Override
     public void outQuiz() {
-        quizDao.getQuiz().getQuestions().stream().forEach(t -> System.out.println(t.question));
+        quizDao.getQuiz().getQuestions().forEach(t -> System.out.println(t.question));
     }
 }

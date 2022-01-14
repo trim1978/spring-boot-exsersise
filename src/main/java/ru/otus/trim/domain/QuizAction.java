@@ -20,10 +20,8 @@ public class QuizAction {
 
     public void addAnswer (Question question, Answer answer){
         if (answers.containsKey(question)){
-            Set<Answer> set = answers.get(question);
-            if (set == null) {
-                answers.put(question, set = new HashSet<>());
-            }
+            Set<Answer> set;
+            set = answers.computeIfAbsent(question, k -> new HashSet<>());
             set.add(answer);
         }
     }
@@ -52,6 +50,6 @@ public class QuizAction {
     }
 
     public int getRightAnsweredQuestionsCount (){
-        return (int)quiz.getQuestions().stream().filter(t -> isRightAnsweredQuestion(t)).count();
+        return (int)quiz.getQuestions().stream().filter(this::isRightAnsweredQuestion).count();
     }
 }

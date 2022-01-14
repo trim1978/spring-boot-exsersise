@@ -31,7 +31,7 @@ public class QuizRunServiceByConsole implements QuizRunService {
     }
 
     private void runQuiz (QuizAction quizAction){
-        quizAction.quiz.getQuestions().stream().forEach(t -> quizAction.setAnswers(t, runQuestion(t)));
+        quizAction.quiz.getQuestions().forEach(t -> quizAction.setAnswers(t, runQuestion(t)));
     }
 
     private List<Answer> outQuestion (Question question){
@@ -48,14 +48,13 @@ public class QuizRunServiceByConsole implements QuizRunService {
         System.out.print(msg.getMessage("quiz.enter.question", new String [] {}, Locale.forLanguageTag(locale)) + ": ");
         Scanner scaner = new Scanner(System.in);
         String answer = scaner.nextLine();
-        String [] tokens = answer.split(" ");
-        return tokens;
+        return answer.split(" ");
     }
 
     private HashSet<Answer> getAnswers (List<Answer> answers, String [] tokens){
         HashSet<Answer> result = new HashSet<>(tokens.length);
         for (String a : tokens){
-            int num = Integer.valueOf(a);
+            int num = Integer.parseInt(a);
             if (num >= 1 && num <= answers.size()) result.add(answers.get(num - 1));
         }
         return result;
